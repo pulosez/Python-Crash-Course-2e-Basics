@@ -20,6 +20,19 @@ class Restaurant:
         self.number_served += number
 
 
+# 9.6.
+class IceCreamStand(Restaurant):
+
+    def __init__(self, name, cuisine_type='ice cream'):
+        super().__init__(name, cuisine_type)
+        self.favors =[]
+
+    def display_favors(self):
+        print("\nWe have following favors:")
+        for favor in self.favors:
+            print(f"- {favor.title()}")
+
+
 restaurant_0 = Restaurant('k food', 'korean food')
 restaurant_0.describe_restaurant()
 
@@ -38,3 +51,8 @@ print(restaurant_2.number_served)
 
 restaurant_2.increment_number_served(470)
 print(restaurant_2.number_served)
+
+ice_cream_stand_0 = IceCreamStand('limo')
+ice_cream_stand_0.favors = ['chocolate', 'vanilla', 'mango', 'banana']
+ice_cream_stand_0.describe_restaurant()
+ice_cream_stand_0.display_favors()
