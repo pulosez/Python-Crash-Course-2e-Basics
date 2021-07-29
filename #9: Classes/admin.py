@@ -1,7 +1,19 @@
-from users import Admin
+from users import User
 
-admin_0 = Admin('anna', 'smith', 'asmith', 'annasmith@mail.com', 29)
-privileges_0 = ['can add post', 'can delete post', 'can ban user']
-admin_0.describe_user()
-admin_0.privileges.privileges = privileges_0
-admin_0.privileges.show_privileges()
+
+class Privileges:
+
+    def __init__(self, privileges=[]):
+        self.privileges = privileges
+
+    def show_privileges(self):
+        print("\nThis admin has such privileges:")
+        for privilege in self.privileges:
+            print(f"- {privilege}")
+
+
+class Admin(User):
+
+    def __init__(self, first_name, last_name, username, email, age):
+        super().__init__(first_name, last_name, username, email, age)
+        self.privileges = Privileges()
