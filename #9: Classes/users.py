@@ -25,6 +25,19 @@ class User:
         self.login_attempts = 0
 
 
+# 9.(7, 8).
+class Admin(User):
+
+    def __init__(self, first_name, last_name, username, email, age):
+        super().__init__(first_name, last_name, username, email, age)
+        self.privileges = []
+
+    def show_privileges(self):
+        print("\nThis admin has such privileges:")
+        for privilege in self.privileges:
+            print(f"- {privilege}")
+
+
 user_0 = User('john', 'frost', 'jfrost', 'johnfrost@mail.com', 27)
 user_0.describe_user()
 user_0.greet_user()
@@ -38,3 +51,8 @@ for value in range(1, 4):
 print(user_1.login_attempts)
 user_1.reset_login_attempts()
 print(user_1.login_attempts)
+
+admin_0 = Admin('anna', 'smith', 'asmith', 'annasmith@mail.com', 29)
+admin_0.privileges = ['can add post', 'can delete post', 'can ban user']
+admin_0.describe_user()
+admin_0.show_privileges()
