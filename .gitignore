@@ -9,3 +9,5 @@ env.bak/
 venv.bak/
 **/.idea
 **/venv
+
+.pytest_cache
