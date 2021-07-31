@@ -26,7 +26,12 @@ def greet_user():
     """Привітати користувача на ім'я"""
     username = get_stored_username()
     if username:
-        print(f"Welcome back, {username}!")
+        answer = input(f"Is your name {username}?\nPlease enter (y/n): ")
+        if answer == 'y':
+            print(f"Welcome back, {username}!")
+        else:
+            username = get_new_username()
+            print(f"We'll remember you when you come back, {username}!")
     else:
         username = get_new_username()
         print(f"We'll remember you when you come back, {username}!")
